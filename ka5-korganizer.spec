@@ -162,7 +162,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/oxygen/16x16/actions/smallclock.png
 %{_iconsdir}/oxygen/16x16/actions/upindicator.png
 %{_iconsdir}/oxygen/22x22/actions/checkmark.png
-%{_datadir}/kconf_update/korganizer-15.08-kickoff.sh
+%attr(755,root,root) %{_datadir}/kconf_update/korganizer-15.08-kickoff.sh
 %{_datadir}/kconf_update/korganizer.upd
 %{_datadir}/kontact/ksettingsdialog
 %{_datadir}/korgac
