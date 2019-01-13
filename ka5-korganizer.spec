@@ -1,14 +1,14 @@
-%define		kdeappsver	18.12.0
+%define		kdeappsver	18.12.1
 %define		qtver		5.9.0
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka5-%{kaname}
-Version:	18.12.0
+Version:	18.12.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	6619a98a4d02b737069908c4295de6c5
+# Source0-md5:	18167b026f936b62113ac467d294edfd
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -18,27 +18,27 @@ BuildRequires:	Qt5UiTools-devel
 BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	gettext-devel
-BuildRequires:	ka5-akonadi-calendar-devel >= 18.12.0
-BuildRequires:	ka5-akonadi-contacts-devel >= 18.12.0
-BuildRequires:	ka5-akonadi-devel >= 18.12.0
-BuildRequires:	ka5-akonadi-mime-devel >= 18.12.0
-BuildRequires:	ka5-akonadi-notes-devel >= 18.12.0
-BuildRequires:	ka5-akonadi-search-devel >= 18.12.0
-BuildRequires:	ka5-calendarsupport-devel >= 18.12.0
-BuildRequires:	ka5-eventviews-devel >= 18.12.0
-BuildRequires:	ka5-incidenceeditor-devel >= 18.12.0
-BuildRequires:	ka5-kcalcore-devel >= 18.12.0
-BuildRequires:	ka5-kcalutils-devel >= 18.12.0
+BuildRequires:	ka5-akonadi-calendar-devel >= %{kdeappsver}
+BuildRequires:	ka5-akonadi-contacts-devel >= %{kdeappsver}
+BuildRequires:	ka5-akonadi-devel >= %{kdeappsver}
+BuildRequires:	ka5-akonadi-mime-devel >= %{kdeappsver}
+BuildRequires:	ka5-akonadi-notes-devel >= %{kdeappsver}
+BuildRequires:	ka5-akonadi-search-devel >= %{kdeappsver}
+BuildRequires:	ka5-calendarsupport-devel >= %{kdeappsver}
+BuildRequires:	ka5-eventviews-devel >= %{kdeappsver}
+BuildRequires:	ka5-incidenceeditor-devel >= %{kdeappsver}
+BuildRequires:	ka5-kcalcore-devel >= %{kdeappsver}
+BuildRequires:	ka5-kcalutils-devel >= %{kdeappsver}
 BuildRequires:	ka5-kcontacts-devel
-BuildRequires:	ka5-kdepim-apps-libs-devel >= 18.12.0
-BuildRequires:	ka5-kidentitymanagement-devel >= 18.12.0
-BuildRequires:	ka5-kldap-devel >= 18.12.0
-BuildRequires:	ka5-kmailtransport-devel >= 18.12.0
-BuildRequires:	ka5-kmime-devel >= 18.12.0
-BuildRequires:	ka5-kontactinterface-devel >= 18.12.0
-BuildRequires:	ka5-kpimtextedit-devel >= 18.12.0
-BuildRequires:	ka5-libkdepim-devel >= 18.12.0
-BuildRequires:	ka5-pimcommon-devel >= 18.12.0
+BuildRequires:	ka5-kdepim-apps-libs-devel >= %{kdeappsver}
+BuildRequires:	ka5-kidentitymanagement-devel >= %{kdeappsver}
+BuildRequires:	ka5-kldap-devel >= %{kdeappsver}
+BuildRequires:	ka5-kmailtransport-devel >= %{kdeappsver}
+BuildRequires:	ka5-kmime-devel >= %{kdeappsver}
+BuildRequires:	ka5-kontactinterface-devel >= %{kdeappsver}
+BuildRequires:	ka5-kpimtextedit-devel >= %{kdeappsver}
+BuildRequires:	ka5-libkdepim-devel >= %{kdeappsver}
+BuildRequires:	ka5-pimcommon-devel >= %{kdeappsver}
 BuildRequires:	kf5-extra-cmake-modules >= 5.51.0
 BuildRequires:	kf5-extra-cmake-modules >= 5.51.0
 BuildRequires:	kf5-kcmutils-devel >= 5.51.0
@@ -61,6 +61,7 @@ BuildRequires:	kf5-kservice-devel >= 5.51.0
 BuildRequires:	kf5-kwidgetsaddons-devel >= 5.51.0
 BuildRequires:	kf5-kwindowsystem-devel >= 5.51.0
 BuildRequires:	kf5-kxmlgui-devel >= 5.51.0
+BuildRequires:	ninja
 BuildRequires:	phonon-qt5-devel
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
@@ -82,14 +83,14 @@ schedule.
 install -d build
 cd build
 %cmake \
+	-G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	..
-%{__make}
+%ninja_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} -C build install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{kaname} --all-name --with-kde
 
