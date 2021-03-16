@@ -1,15 +1,15 @@
-%define		kdeappsver	19.04.1
+%define		kdeappsver	20.12.3
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka5-%{kaname}
-Version:	19.04.1
+Version:	20.12.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
-Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	f1f02e3914536507fc0bbbf828088c45
+Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	d6d41a609017a97d3d86867a157a2b81
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -28,10 +28,7 @@ BuildRequires:	ka5-akonadi-search-devel >= %{kdeappsver}
 BuildRequires:	ka5-calendarsupport-devel >= %{kdeappsver}
 BuildRequires:	ka5-eventviews-devel >= %{kdeappsver}
 BuildRequires:	ka5-incidenceeditor-devel >= %{kdeappsver}
-BuildRequires:	ka5-kcalcore-devel >= %{kdeappsver}
 BuildRequires:	ka5-kcalutils-devel >= %{kdeappsver}
-BuildRequires:	ka5-kcontacts-devel >= %{kdeappsver}
-BuildRequires:	ka5-kdepim-apps-libs-devel >= %{kdeappsver}
 BuildRequires:	ka5-kidentitymanagement-devel >= %{kdeappsver}
 BuildRequires:	ka5-kldap-devel >= %{kdeappsver}
 BuildRequires:	ka5-kmailtransport-devel >= %{kdeappsver}
@@ -104,9 +101,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
 /etc/xdg/autostart/org.kde.korgac.desktop
-/etc/xdg/korganizer.categories
-/etc/xdg/korganizer.knsrc
-/etc/xdg/korganizer.renamecategories
 %attr(755,root,root) %{_bindir}/korgac
 %attr(755,root,root) %{_bindir}/korganizer
 %attr(755,root,root) %{_libdir}/libkorganizer_core.so
@@ -121,10 +115,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/kcm_korganizer.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kcm_sdsummary.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kcm_todosummary.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kontact_journalplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kontact_korganizerplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kontact_specialdatesplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kontact_todoplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/korganizerpart.so
 %{_desktopdir}/korganizer-import.desktop
 %{_desktopdir}/org.kde.korganizer.desktop
@@ -186,5 +176,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/korganizer_configviews.desktop
 %{_datadir}/kservices5/korganizer_part.desktop
 %{_datadir}/kservices5/webcal.protocol
-%{_datadir}/kservicetypes5/dbuscalendar.desktop
 %{_datadir}/metainfo/org.kde.korganizer.appdata.xml
+%{_datadir}/dbus-1/services/org.kde.korganizer.service
+%{_datadir}/knsrcfiles/korganizer.knsrc
+%{_datadir}/kservicetypes5/korganizerpart.desktop
+%{_datadir}/qlogging-categories5/korganizer.categories
+%{_datadir}/qlogging-categories5/korganizer.renamecategories
+%attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_journalplugin.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_korganizerplugin.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_specialdatesplugin.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_todoplugin.so
+%{_desktopdir}/korganizer-view.desktop
+%{_datadir}/dbus-1/services/org.kde.korgac.service
+%{_datadir}/kservices5/korganizer_userfeedback.desktop
