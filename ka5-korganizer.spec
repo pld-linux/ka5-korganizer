@@ -1,15 +1,15 @@
-%define		kdeappsver	20.12.3
+%define		kdeappsver	21.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka5-%{kaname}
-Version:	20.12.3
+Version:	21.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	d6d41a609017a97d3d86867a157a2b81
+# Source0-md5:	fa25e0eaafe75e7cb976827a7fd77c17
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -103,14 +103,14 @@ rm -rf $RPM_BUILD_ROOT
 /etc/xdg/autostart/org.kde.korgac.desktop
 %attr(755,root,root) %{_bindir}/korgac
 %attr(755,root,root) %{_bindir}/korganizer
-%attr(755,root,root) %{_libdir}/libkorganizer_core.so
-%attr(755,root,root) %ghost %{_libdir}/libkorganizer_core.so.5
-%attr(755,root,root) %{_libdir}/libkorganizer_core.so.5.*.*
-%attr(755,root,root) %{_libdir}/libkorganizer_interfaces.so
-%attr(755,root,root) %ghost %{_libdir}/libkorganizer_interfaces.so.5
-%attr(755,root,root) %{_libdir}/libkorganizer_interfaces.so.5.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkorganizerprivate.so.5
-%attr(755,root,root) %{_libdir}/libkorganizerprivate.so.5.*.*
+%{_libdir}/libkorganizer_core.so
+%ghost %{_libdir}/libkorganizer_core.so.5
+%attr(755,root,root) %{_libdir}/libkorganizer_core.so.*.*.*
+%{_libdir}/libkorganizer_interfaces.so
+%ghost %{_libdir}/libkorganizer_interfaces.so.5
+%attr(755,root,root) %{_libdir}/libkorganizer_interfaces.so.*.*.*
+%ghost %{_libdir}/libkorganizerprivate.so.5
+%attr(755,root,root) %{_libdir}/libkorganizerprivate.so.*.*.*
 %attr(755,root,root) %{_libdir}/qt5/plugins/kcm_apptsummary.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kcm_korganizer.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kcm_sdsummary.so
@@ -151,9 +151,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/scalable/apps/korg-todo.svg
 %{_iconsdir}/hicolor/scalable/apps/korganizer.svg
 %{_iconsdir}/hicolor/scalable/apps/quickview.svgz
-%{_iconsdir}/oxygen/16x16/actions/smallclock.png
-%{_iconsdir}/oxygen/16x16/actions/upindicator.png
-%{_iconsdir}/oxygen/22x22/actions/checkmark.png
 %attr(755,root,root) %{_datadir}/kconf_update/korganizer-15.08-kickoff.sh
 %{_datadir}/kconf_update/korganizer.upd
 %{_datadir}/kontact/ksettingsdialog
