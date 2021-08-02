@@ -73,6 +73,12 @@ can write journal entries, schedule appointments, events, and to-dos.
 KOrganizer will remind you about pending tasks, and help you keep your
 schedule.
 
+%description -l pl.UTF-8
+KOrganizer jest łatwym w użyciu programem do zarządzania informacją
+osobistą (PIM). Możesz dodawać wpisy do dziennika, planować spotkania,
+i listę zadań do zrobienia. KOrganizer przypomni Ci o sprawach
+do załatwienia i pomoże Ci trzymać się planu.
+
 %prep
 %setup -q -n %{kaname}-%{version}
 
