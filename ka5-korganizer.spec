@@ -1,15 +1,15 @@
-%define		kdeappsver	21.04.3
+%define		kdeappsver	21.08.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka5-%{kaname}
-Version:	21.04.3
+Version:	21.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	26d5eb4c53efdf5f39b698ff764fe307
+# Source0-md5:	44c8129c351b8fc0fdb16d36284e19c5
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -76,8 +76,8 @@ schedule.
 %description -l pl.UTF-8
 KOrganizer jest łatwym w użyciu programem do zarządzania informacją
 osobistą (PIM). Możesz dodawać wpisy do dziennika, planować spotkania,
-i listę zadań do zrobienia. KOrganizer przypomni Ci o sprawach
-do załatwienia i pomoże Ci trzymać się planu.
+i listę zadań do zrobienia. KOrganizer przypomni Ci o sprawach do
+załatwienia i pomoże Ci trzymać się planu.
 
 %prep
 %setup -q -n %{kaname}-%{version}
@@ -112,15 +112,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libkorganizer_core.so
 %ghost %{_libdir}/libkorganizer_core.so.5
 %attr(755,root,root) %{_libdir}/libkorganizer_core.so.*.*.*
-%{_libdir}/libkorganizer_interfaces.so
 %ghost %{_libdir}/libkorganizer_interfaces.so.5
 %attr(755,root,root) %{_libdir}/libkorganizer_interfaces.so.*.*.*
 %ghost %{_libdir}/libkorganizerprivate.so.5
 %attr(755,root,root) %{_libdir}/libkorganizerprivate.so.*.*.*
-%attr(755,root,root) %{_libdir}/qt5/plugins/kcm_apptsummary.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kcm_korganizer.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kcm_sdsummary.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kcm_todosummary.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/korganizerpart.so
 %{_desktopdir}/korganizer-import.desktop
 %{_desktopdir}/org.kde.korganizer.desktop
@@ -160,7 +155,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_datadir}/kconf_update/korganizer-15.08-kickoff.sh
 %{_datadir}/kconf_update/korganizer.upd
 %{_datadir}/kontact/ksettingsdialog
-%{_datadir}/korgac
 %{_datadir}/korganizer
 %{_datadir}/kservices5/kcmapptsummary.desktop
 %{_datadir}/kservices5/kcmsdsummary.desktop
@@ -178,7 +172,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/korganizer_configtime.desktop
 %{_datadir}/kservices5/korganizer_configviews.desktop
 %{_datadir}/kservices5/korganizer_part.desktop
-%{_datadir}/kservices5/webcal.protocol
 %{_datadir}/metainfo/org.kde.korganizer.appdata.xml
 %{_datadir}/dbus-1/services/org.kde.korganizer.service
 %{_datadir}/knsrcfiles/korganizer.knsrc
@@ -192,3 +185,22 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/korganizer-view.desktop
 %{_datadir}/dbus-1/services/org.kde.korgac.service
 %{_datadir}/kservices5/korganizer_userfeedback.desktop
+%dir %{_libdir}/qt5/plugins/pim/kcms/korganizer
+%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configcolorsandfonts.so
+%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configdesignerfields.so
+%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configfreebusy.so
+%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configgroupscheduling.so
+%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configmain.so
+%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configplugins.so
+%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configtime.so
+%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configviews.so
+%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_userfeedback.so
+%{_libdir}/qt5/plugins/pim/kcms/summary/kcmapptsummary.so
+%{_libdir}/qt5/plugins/pim/kcms/summary/kcmsdsummary.so
+%{_libdir}/qt5/plugins/pim/kcms/summary/kcmtodosummary.so
+%{_iconsdir}/hicolor/128x128/apps/korgac.png
+%{_iconsdir}/hicolor/16x16/apps/korgac.png
+%{_iconsdir}/hicolor/22x22/apps/korgac.png
+%{_iconsdir}/hicolor/256x256/apps/korgac.png
+%{_iconsdir}/hicolor/32x32/apps/korgac.png
+%{_iconsdir}/hicolor/64x64/apps/korgac.png
