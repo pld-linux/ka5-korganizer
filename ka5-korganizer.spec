@@ -1,15 +1,15 @@
-%define		kdeappsver	21.08.3
+%define		kdeappsver	21.12.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka5-%{kaname}
-Version:	21.08.3
+Version:	21.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	c282851530eca1bc659d40a660fcf79c
+# Source0-md5:	577da7aab50d26f6939eefa318bde681
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -154,7 +154,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/scalable/apps/quickview.svgz
 %attr(755,root,root) %{_datadir}/kconf_update/korganizer-15.08-kickoff.sh
 %{_datadir}/kconf_update/korganizer.upd
-%{_datadir}/kontact/ksettingsdialog
 %{_datadir}/korganizer
 %{_datadir}/kservices5/kcmapptsummary.desktop
 %{_datadir}/kservices5/kcmsdsummary.desktop
