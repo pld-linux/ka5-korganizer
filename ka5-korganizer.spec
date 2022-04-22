@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	21.12.3
+%define		kdeappsver	22.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka5-%{kaname}
-Version:	21.12.3
+Version:	22.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	e2fd0831e57e6268e7e2f95514fbec63
+# Source0-md5:	5fb84afc676b89113c3bbe380be46b90
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -77,10 +77,11 @@ KOrganizer will remind you about pending tasks, and help you keep your
 schedule.
 
 %description -l pl.UTF-8
-KOrganizer jest łatwym w użyciu programem do zarządzania informacją
-osobistą (PIM). Możesz dodawać wpisy do dziennika, planować spotkania,
-i listę zadań do zrobienia. KOrganizer przypomni Ci o sprawach do
-załatwienia i pomoże Ci trzymać się planu.
+KOrganizer jest łatwym w użyciu programem do zarządzania
+informacją osobistą (PIM). Możesz dodawać wpisy do dziennika,
+planować spotkania, i listę zadań do zrobienia. KOrganizer
+przypomni Ci o sprawach do załatwienia i pomoże Ci trzymać się
+planu.
 
 %prep
 %setup -q -n %{kaname}-%{version}
@@ -115,8 +116,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-/etc/xdg/autostart/org.kde.korgac.desktop
-%attr(755,root,root) %{_bindir}/korgac
 %attr(755,root,root) %{_bindir}/korganizer
 %{_libdir}/libkorganizer_core.so
 %ghost %{_libdir}/libkorganizer_core.so.5
@@ -130,7 +129,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/org.kde.korganizer.desktop
 %{_datadir}/config.kcfg/korganizer.kcfg
 %{_datadir}/dbus-1/interfaces/org.kde.Korganizer.Calendar.xml
-%{_datadir}/dbus-1/interfaces/org.kde.korganizer.KOrgac.xml
 %{_datadir}/dbus-1/interfaces/org.kde.korganizer.Korganizer.xml
 %{_iconsdir}/hicolor/128x128/apps/korg-journal.png
 %{_iconsdir}/hicolor/128x128/apps/korg-todo.png
@@ -161,27 +159,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/scalable/apps/korg-todo.svg
 %{_iconsdir}/hicolor/scalable/apps/korganizer.svg
 %{_iconsdir}/hicolor/scalable/apps/quickview.svgz
-%attr(755,root,root) %{_datadir}/kconf_update/korganizer-15.08-kickoff.sh
-%{_datadir}/kconf_update/korganizer.upd
 %{_datadir}/korganizer
-%{_datadir}/kservices5/kcmapptsummary.desktop
-%{_datadir}/kservices5/kcmsdsummary.desktop
-%{_datadir}/kservices5/kcmtodosummary.desktop
-%{_datadir}/kservices5/kontact/journalplugin.desktop
-%{_datadir}/kservices5/kontact/korganizerplugin.desktop
-%{_datadir}/kservices5/kontact/specialdatesplugin.desktop
-%{_datadir}/kservices5/kontact/todoplugin.desktop
-%{_datadir}/kservices5/korganizer_configcolorsandfonts.desktop
-%{_datadir}/kservices5/korganizer_configdesignerfields.desktop
-%{_datadir}/kservices5/korganizer_configfreebusy.desktop
-%{_datadir}/kservices5/korganizer_configgroupscheduling.desktop
-%{_datadir}/kservices5/korganizer_configmain.desktop
-%{_datadir}/kservices5/korganizer_configplugins.desktop
-%{_datadir}/kservices5/korganizer_configtime.desktop
-%{_datadir}/kservices5/korganizer_configviews.desktop
-%{_datadir}/kservices5/korganizer_part.desktop
 %{_datadir}/metainfo/org.kde.korganizer.appdata.xml
-%{_datadir}/dbus-1/services/org.kde.korganizer.service
 %{_datadir}/knsrcfiles/korganizer.knsrc
 %{_datadir}/kservicetypes5/korganizerpart.desktop
 %{_datadir}/qlogging-categories5/korganizer.categories
@@ -191,8 +170,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_specialdatesplugin.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_todoplugin.so
 %{_desktopdir}/korganizer-view.desktop
-%{_datadir}/dbus-1/services/org.kde.korgac.service
-%{_datadir}/kservices5/korganizer_userfeedback.desktop
 %dir %{_libdir}/qt5/plugins/pim/kcms/korganizer
 %{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configcolorsandfonts.so
 %{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configdesignerfields.so
@@ -206,9 +183,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/plugins/pim/kcms/summary/kcmapptsummary.so
 %{_libdir}/qt5/plugins/pim/kcms/summary/kcmsdsummary.so
 %{_libdir}/qt5/plugins/pim/kcms/summary/kcmtodosummary.so
-%{_iconsdir}/hicolor/128x128/apps/korgac.png
-%{_iconsdir}/hicolor/16x16/apps/korgac.png
-%{_iconsdir}/hicolor/22x22/apps/korgac.png
-%{_iconsdir}/hicolor/256x256/apps/korgac.png
-%{_iconsdir}/hicolor/32x32/apps/korgac.png
-%{_iconsdir}/hicolor/64x64/apps/korgac.png
+%{_datadir}/dbus-1/services/org.kde.korganizer.service
