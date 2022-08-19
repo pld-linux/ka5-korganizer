@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.04.3
+%define		kdeappsver	22.08.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka5-%{kaname}
-Version:	22.04.3
+Version:	22.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	f1fa846e5e2059c061ea0c51d350be6b
+# Source0-md5:	5286edb1dfe1c5e2dbd44bc849561ef4
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -165,22 +165,22 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservicetypes5/korganizerpart.desktop
 %{_datadir}/qlogging-categories5/korganizer.categories
 %{_datadir}/qlogging-categories5/korganizer.renamecategories
-%attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_journalplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_korganizerplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_specialdatesplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/kontact5/kontact_todoplugin.so
 %{_desktopdir}/korganizer-view.desktop
-%dir %{_libdir}/qt5/plugins/pim/kcms/korganizer
-%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configcolorsandfonts.so
-%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configdesignerfields.so
-%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configfreebusy.so
-%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configgroupscheduling.so
-%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configmain.so
-%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configplugins.so
-%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configtime.so
-%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_configviews.so
-%{_libdir}/qt5/plugins/pim/kcms/korganizer/korganizer_userfeedback.so
-%{_libdir}/qt5/plugins/pim/kcms/summary/kcmapptsummary.so
-%{_libdir}/qt5/plugins/pim/kcms/summary/kcmsdsummary.so
-%{_libdir}/qt5/plugins/pim/kcms/summary/kcmtodosummary.so
 %{_datadir}/dbus-1/services/org.kde.korganizer.service
+%dir %{_libdir}/qt5/plugins/pim5/kcms/korganizer
+%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configcolorsandfonts.so
+%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configdesignerfields.so
+%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configfreebusy.so
+%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configgroupscheduling.so
+%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configmain.so
+%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configplugins.so
+%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configtime.so
+%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configviews.so
+%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_userfeedback.so
+%{_libdir}/qt5/plugins/pim5/kcms/summary/kcmapptsummary.so
+%{_libdir}/qt5/plugins/pim5/kcms/summary/kcmsdsummary.so
+%{_libdir}/qt5/plugins/pim5/kcms/summary/kcmtodosummary.so
+%{_libdir}/qt5/plugins/pim5/kontact/kontact_journalplugin.so
+%{_libdir}/qt5/plugins/pim5/kontact/kontact_korganizerplugin.so
+%{_libdir}/qt5/plugins/pim5/kontact/kontact_specialdatesplugin.so
+%{_libdir}/qt5/plugins/pim5/kontact/kontact_todoplugin.so
