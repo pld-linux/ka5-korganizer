@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.08.3
+%define		kdeappsver	22.12.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka5-%{kaname}
-Version:	22.08.3
+Version:	22.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	86c6dca70a7cf6fcdb84d5e9cbf68734
+# Source0-md5:	19649f72f23426b663a08391c6b9eec2
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -162,7 +162,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/korganizer
 %{_datadir}/metainfo/org.kde.korganizer.appdata.xml
 %{_datadir}/knsrcfiles/korganizer.knsrc
-%{_datadir}/kservicetypes5/korganizerpart.desktop
 %{_datadir}/qlogging-categories5/korganizer.categories
 %{_datadir}/qlogging-categories5/korganizer.renamecategories
 %{_desktopdir}/korganizer-view.desktop
