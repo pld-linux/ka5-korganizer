@@ -1,25 +1,25 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.08.4
+%define		kdeappsver	24.01.95
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka5-%{kaname}
-Version:	23.08.4
-Release:	1
+Version:	24.01.95
+Release:	0.1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
-Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	87a6cba97139a806a8d012aba4c90197
+Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	83b3babac26994db9ee09bf2add5492e
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5DBus-devel
-BuildRequires:	Qt5Gui-devel
-BuildRequires:	Qt5Test-devel
-BuildRequires:	Qt5UiTools-devel
-BuildRequires:	Qt5Widgets-devel
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6DBus-devel
+BuildRequires:	Qt6Gui-devel
+BuildRequires:	Qt6Test-devel
+BuildRequires:	Qt6UiTools-devel
+BuildRequires:	Qt6Widgets-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-devel
 BuildRequires:	ka5-akonadi-calendar-devel >= %{kdeappsver}
@@ -40,30 +40,30 @@ BuildRequires:	ka5-kontactinterface-devel >= %{kdeappsver}
 BuildRequires:	ka5-kpimtextedit-devel >= %{kdeappsver}
 BuildRequires:	ka5-libkdepim-devel >= %{kdeappsver}
 BuildRequires:	ka5-pimcommon-devel >= %{kdeappsver}
-BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf5-kcmutils-devel >= %{kframever}
-BuildRequires:	kf5-kcodecs-devel >= %{kframever}
-BuildRequires:	kf5-kcompletion-devel >= %{kframever}
-BuildRequires:	kf5-kconfig-devel >= %{kframever}
-BuildRequires:	kf5-kconfigwidgets-devel >= %{kframever}
-BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
-BuildRequires:	kf5-kcrash-devel >= %{kframever}
-BuildRequires:	kf5-kdbusaddons-devel >= %{kframever}
-BuildRequires:	kf5-kdoctools-devel >= %{kframever}
-BuildRequires:	kf5-kholidays-devel >= %{kframever}
-BuildRequires:	kf5-kiconthemes-devel >= %{kframever}
-BuildRequires:	kf5-kitemviews-devel >= %{kframever}
-BuildRequires:	kf5-kjobwidgets-devel >= %{kframever}
-BuildRequires:	kf5-knewstuff-devel >= %{kframever}
-BuildRequires:	kf5-knotifications-devel >= %{kframever}
-BuildRequires:	kf5-kparts-devel >= %{kframever}
-BuildRequires:	kf5-kservice-devel >= %{kframever}
-BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
-BuildRequires:	kf5-kwindowsystem-devel >= %{kframever}
-BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
+BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf6-kcmutils-devel >= %{kframever}
+BuildRequires:	kf6-kcodecs-devel >= %{kframever}
+BuildRequires:	kf6-kcompletion-devel >= %{kframever}
+BuildRequires:	kf6-kconfig-devel >= %{kframever}
+BuildRequires:	kf6-kconfigwidgets-devel >= %{kframever}
+BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf6-kcrash-devel >= %{kframever}
+BuildRequires:	kf6-kdbusaddons-devel >= %{kframever}
+BuildRequires:	kf6-kdoctools-devel >= %{kframever}
+BuildRequires:	kf6-kholidays-devel >= %{kframever}
+BuildRequires:	kf6-kiconthemes-devel >= %{kframever}
+BuildRequires:	kf6-kitemviews-devel >= %{kframever}
+BuildRequires:	kf6-kjobwidgets-devel >= %{kframever}
+BuildRequires:	kf6-knewstuff-devel >= %{kframever}
+BuildRequires:	kf6-knotifications-devel >= %{kframever}
+BuildRequires:	kf6-kparts-devel >= %{kframever}
+BuildRequires:	kf6-kservice-devel >= %{kframever}
+BuildRequires:	kf6-kwidgetsaddons-devel >= %{kframever}
+BuildRequires:	kf6-kwindowsystem-devel >= %{kframever}
+BuildRequires:	kf6-kxmlgui-devel >= %{kframever}
 BuildRequires:	ninja
-BuildRequires:	phonon-qt5-devel
-BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	phonon-qt6-devel
+BuildRequires:	qt6-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -115,69 +115,41 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/korganizer
-%{_libdir}/libkorganizer_core.so
-%ghost %{_libdir}/libkorganizer_core.so.5
-%attr(755,root,root) %{_libdir}/libkorganizer_core.so.*.*.*
-%ghost %{_libdir}/libkorganizer_interfaces.so.5
-%attr(755,root,root) %{_libdir}/libkorganizer_interfaces.so.*.*.*
-%ghost %{_libdir}/libkorganizerprivate.so.5
-%attr(755,root,root) %{_libdir}/libkorganizerprivate.so.*.*.*
-%attr(755,root,root) %{_libdir}/qt5/plugins/korganizerpart.so
+%ghost %{_libdir}/libkorganizer_core.so.6
+%attr(755,root,root) %{_libdir}/libkorganizer_core.so.*.*
+%ghost %{_libdir}/libkorganizer_interfaces.so.6
+%attr(755,root,root) %{_libdir}/libkorganizer_interfaces.so.*.*
+%ghost %{_libdir}/libkorganizerprivate.so.6
+%attr(755,root,root) %{_libdir}/libkorganizerprivate.so.*.*
+%attr(755,root,root) %{_libdir}/qt6/plugins/korganizerpart.so
 %{_desktopdir}/korganizer-import.desktop
 %{_desktopdir}/org.kde.korganizer.desktop
 %{_datadir}/config.kcfg/korganizer.kcfg
 %{_datadir}/dbus-1/interfaces/org.kde.Korganizer.Calendar.xml
 %{_datadir}/dbus-1/interfaces/org.kde.korganizer.Korganizer.xml
-%{_iconsdir}/hicolor/128x128/apps/korg-journal.png
-%{_iconsdir}/hicolor/128x128/apps/korg-todo.png
-%{_iconsdir}/hicolor/128x128/apps/korganizer.png
-%{_iconsdir}/hicolor/128x128/apps/quickview.png
-%{_iconsdir}/hicolor/16x16/apps/korg-journal.png
-%{_iconsdir}/hicolor/16x16/apps/korg-todo.png
-%{_iconsdir}/hicolor/16x16/apps/korganizer.png
-%{_iconsdir}/hicolor/16x16/apps/quickview.png
-%{_iconsdir}/hicolor/22x22/apps/korg-journal.png
-%{_iconsdir}/hicolor/22x22/apps/korg-todo.png
-%{_iconsdir}/hicolor/22x22/apps/korganizer.png
-%{_iconsdir}/hicolor/22x22/apps/quickview.png
-%{_iconsdir}/hicolor/256x256/apps/quickview.png
-%{_iconsdir}/hicolor/32x32/apps/korg-journal.png
-%{_iconsdir}/hicolor/32x32/apps/korg-todo.png
-%{_iconsdir}/hicolor/32x32/apps/korganizer.png
-%{_iconsdir}/hicolor/32x32/apps/quickview.png
-%{_iconsdir}/hicolor/48x48/apps/korg-journal.png
-%{_iconsdir}/hicolor/48x48/apps/korg-todo.png
-%{_iconsdir}/hicolor/48x48/apps/korganizer.png
-%{_iconsdir}/hicolor/48x48/apps/quickview.png
-%{_iconsdir}/hicolor/64x64/apps/korg-journal.png
-%{_iconsdir}/hicolor/64x64/apps/korg-todo.png
-%{_iconsdir}/hicolor/64x64/apps/korganizer.png
-%{_iconsdir}/hicolor/64x64/apps/quickview.png
-%{_iconsdir}/hicolor/scalable/apps/korg-journal.svgz
-%{_iconsdir}/hicolor/scalable/apps/korg-todo.svg
-%{_iconsdir}/hicolor/scalable/apps/korganizer.svg
-%{_iconsdir}/hicolor/scalable/apps/quickview.svgz
+%{_iconsdir}/hicolor/*x*/apps/*.png
+%{_iconsdir}/hicolor/scalable/apps/*.svg*
 %{_datadir}/korganizer
 %{_datadir}/metainfo/org.kde.korganizer.appdata.xml
 %{_datadir}/knsrcfiles/korganizer.knsrc
-%{_datadir}/qlogging-categories5/korganizer.categories
-%{_datadir}/qlogging-categories5/korganizer.renamecategories
+%{_datadir}/qlogging-categories6/korganizer.categories
+%{_datadir}/qlogging-categories6/korganizer.renamecategories
 %{_desktopdir}/korganizer-view.desktop
 %{_datadir}/dbus-1/services/org.kde.korganizer.service
-%dir %{_libdir}/qt5/plugins/pim5/kcms/korganizer
-%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configcolorsandfonts.so
-%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configdesignerfields.so
-%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configfreebusy.so
-%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configgroupscheduling.so
-%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configmain.so
-%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configplugins.so
-%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configtime.so
-%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_configviews.so
-%{_libdir}/qt5/plugins/pim5/kcms/korganizer/korganizer_userfeedback.so
-%{_libdir}/qt5/plugins/pim5/kcms/summary/kcmapptsummary.so
-%{_libdir}/qt5/plugins/pim5/kcms/summary/kcmsdsummary.so
-%{_libdir}/qt5/plugins/pim5/kcms/summary/kcmtodosummary.so
-%{_libdir}/qt5/plugins/pim5/kontact/kontact_journalplugin.so
-%{_libdir}/qt5/plugins/pim5/kontact/kontact_korganizerplugin.so
-%{_libdir}/qt5/plugins/pim5/kontact/kontact_specialdatesplugin.so
-%{_libdir}/qt5/plugins/pim5/kontact/kontact_todoplugin.so
+%dir %{_libdir}/qt6/plugins/pim6/kcms/korganizer
+%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configcolorsandfonts.so
+%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configdesignerfields.so
+%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configfreebusy.so
+%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configgroupscheduling.so
+%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configmain.so
+%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configplugins.so
+%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configtime.so
+%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configviews.so
+%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_userfeedback.so
+%{_libdir}/qt6/plugins/pim6/kcms/summary/kcmapptsummary.so
+%{_libdir}/qt6/plugins/pim6/kcms/summary/kcmsdsummary.so
+%{_libdir}/qt6/plugins/pim6/kcms/summary/kcmtodosummary.so
+%{_libdir}/qt6/plugins/pim6/kontact/kontact_journalplugin.so
+%{_libdir}/qt6/plugins/pim6/kontact/kontact_korganizerplugin.so
+%{_libdir}/qt6/plugins/pim6/kontact/kontact_specialdatesplugin.so
+%{_libdir}/qt6/plugins/pim6/kontact/kontact_todoplugin.so
